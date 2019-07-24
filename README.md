@@ -17,15 +17,15 @@ Output: A file where each line contains a list of the available servers at the e
 *`Example with Ttask = 4 and Umax = 2`*
 
 |Clock ticks|Input|Output|Tip|
-|:----------:|:-----:|:------:|:---:|
-|1 |1|  1  |1 server for 1 user. (1 server created)|
-|2 |3| 2,2 |1 server for 1 user. (1 server created)|
-|3 |0| 2,2 |1 server for 1 user. (1 server created)|
-|4 |1|2,2,1|1 server for 1 user. (1 server created)|
-|5 |0|1,2,1|1 server for 1 user. (1 server created)|
-|6 |1|  2  |1 server for 1 user. (1 server created)|
-|7 | |  2  |1 server for 1 user. (1 server created)|
-|8 | |  2  |1 server for 1 user. (1 server created)|
-|9 | |  1  |1 server for 1 user. (1 server created)|
-|10| |  1  |1 server for 1 user. (1 server created)|
-|  | | $15 |Total Cost: $1 x 5 ticks (first VM) + $1 x 4 ticks (second VM) + $1 x 6 ticks (third VM) = $15
+|:-:|:-:|:---:|:---------------------------------------------------------------:|
+|1 |1|  1  |1 server for 1 user. (1 server created)                             |
+|2 |3| 2,2 |2 servers for 4 users. (1 server created)                           |
+|3 |0| 2,2 |idem                                                                |
+|4 |1|2,2,1|3 servers for 5 users. (1 server created)                           |
+|5 |0|1,2,1|3 servers for 4 users. (First user left after 4 ticks)              |
+|6 |1|  2  |1 server for 2 users. (3 users left, 1 joined. 2 servers terminated)|
+|7 | |  2  |idem                                                                |
+|8 | |  2  |1 server for 1 user. (1 user left)                                  |
+|9 | |  1  |idem                                                                |
+|10| |     |last user left. (last server terminated)                            |
+|  | | $15 |Total Cost: $1 x 5 ticks (first VM) + $1 x 4 ticks (second VM) + $1 x 6 ticks (third VM) = $15|
