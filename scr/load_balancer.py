@@ -2,15 +2,20 @@
 
 from scr.server import Server
 
+
 class LoadBalancer:
+    """Class Load Balancer."""
+
     def __init__(self):
+        """Atribute definition."""
         self.pool = []
 
     def add_user(self, user):
-        if not self.pool:
-            self.pool.append(Server())
+        for usr in range(user):
+            if not self.pool:
+                self.pool.append(Server())
 
-        elif self.pool[0].is_full:
-            self.pool.append(Server())
+            elif self.pool[-1].is_full:
+                self.pool.append(Server())
 
-        self.pool[0].add_task()
+            self.pool[-1].add_task()
